@@ -1,2 +1,2 @@
-# 2c2p-web
-The example of frontend using Angular Material framework
+# 2C2P web
+This is a software architect technical assignment given from 2C2P
