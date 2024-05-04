@@ -174,7 +174,7 @@ export class MasterService {
     return currencies;
   }
 
-  GetTransactionStatus() {
+  GetInvoiceStatus() {
     const status: DropdownListModel<string, string>[] = [
       { key: 'A', value: 'Approved' },
       { key: 'R', value: 'Rejected' },
