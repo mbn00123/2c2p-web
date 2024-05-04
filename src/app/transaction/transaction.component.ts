@@ -56,7 +56,7 @@ export class TransactionComponent implements OnInit {
 
   public searchType: number = 1;
   public criteria: SearchInvoiceCriteriaModel = {
-    pageIndex: 1,
+    pageIndex: 0,
     pageSize: 25,
     currency: "THB",
     status: "A",
@@ -70,9 +70,9 @@ export class TransactionComponent implements OnInit {
   public pageSizeOptions = [10, 25, 50, 100];
 
   public result: SearchInvoiceResultModel = {
-    page: 1,
-    totalPage: 0,
-    totalRecord: 0,
+    page: 0,
+    totalPage: 100,
+    totalRecord: 250,
     data: [{
       invoiceNumber: 'XXXX',
       invoiceAmount: 999999.99,

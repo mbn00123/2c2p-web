@@ -32,7 +32,7 @@
                             <input matStartDate placeholder="Start date" [(ngModel)]="criteria.startDate">
                             <input matEndDate placeholder="End date" [(ngModel)]="criteria.endDate">
                         </mat-date-range-input>
-                        <mat-hint>DD/MM/YYYY - DD/MM/YYYY</mat-hint>
+                        <!-- <mat-hint>DD/MM/YYYY - DD/MM/YYYY</mat-hint> -->
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-date-range-picker #picker></mat-date-range-picker>
                     </mat-form-field>
@@ -85,7 +85,7 @@
                 </tbody>
             </table>
         </div>
-        <mat-paginator #paginator class="demo-paginator" (page)="pageChanged($event)" [length]="result.totalPage"
+        <mat-paginator #paginator class="demo-paginator" (page)="pageChanged($event)" [length]="result.totalRecord"
             [pageIndex]="criteria.pageIndex" [pageSize]="criteria.pageSize" [showFirstLastButtons]="true"
             [pageSizeOptions]="pageSizeOptions">
         </mat-paginator>
