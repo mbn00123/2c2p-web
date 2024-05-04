@@ -8,13 +8,15 @@
         <div class="row">
             <div class="col-12">
                 <label for="formFile" class="form-label">Transaction File (CSV/XML)</label>
-                <input class="form-control" type="file" id="formFile">
-                <p class="text-danger">Required field</p>
-                <p class="text-danger">กรุณาเลือกไฟล์ CSV หรือ XML เท่านั้น</p>
-                <p class="text-danger">ไม่สามารถอัปโหลดไฟล์ขนาดเกิน 1MB</p>
+                <input class="form-control" type="file" id="formFile" (change)="onFileSelect($event)"
+                    accept=".csv,.xml">
+                <p class="text-danger" *ngIf="fileNotSelected">Please select a file</p>
+                <p class="text-danger" *ngIf="fileTooLarge">File size exceeds 1 MB</p>
+                <p class="text-danger" *ngIf="invalidExtension">Invalid file extension. Only CSV and XML files are
+                    allowed.</p>
             </div>
             <div class="col-12 pt-2">
-                <button mat-flat-button color="primary" (click)="upload()">Upload</button>
+                <button mat-flat-button color="primary" (click)="onSubmit()">Upload</button>
             </div>
         </div>
 
