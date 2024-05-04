@@ -1,3 +1,12 @@
+# Prerequisite
+
+1. Install [NodeJs](https://nodejs.org/en)
+2. Run `npm install` command within the project directory
+
+## Start application
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+-------------------------- Project Description ----------------------------------------
 # 2C2P web
 This is a software architect technical assignment given from 2C2P
 
