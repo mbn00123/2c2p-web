@@ -54,6 +54,12 @@ export class TransactionComponent implements OnInit {
     this.currencies = this.masterService.GetCurrency();
     this.invoiceStatus = this.masterService.GetInvoiceStatus();
 
+    this.criteria = {
+      currency: "THB",
+      status: "A",
+      startDate: new Date(),
+      endDate: new Date(),
+    }
   }
 
   async search() {
