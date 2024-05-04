@@ -1,1 +1,59 @@
-<p>transaction works!</p>
+<h1 class="page-title">Invoice Transaction</h1>
+<mat-card>
+    <mat-card-content>
+
+        <div class="row">
+            <div class="col-xl-4 col-md-6">
+                <label>Search By</label>
+                <mat-radio-group aria-label="Select an option" class="example-radio-group" [(ngModel)]="searchType">
+                    <mat-radio-button [value]="1">Currency</mat-radio-button>
+                    <mat-radio-button [value]="2">Invoice Date</mat-radio-button>
+                    <mat-radio-button [value]="3">Status</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="col-xl-4 col-md-6" *ngIf="searchType == 1">
+                <div class="form-group">
+                    <label>Currency</label>
+                    <mat-form-field>
+                        <mat-label>Choose an option</mat-label>
+                        <mat-select [(ngModel)]="criteria.currency">
+                            <mat-option *ngFor="let item of currencies" [value]="item.key">{{item.key}} -
+                                {{item.value}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6" *ngIf="searchType == 2">
+                <div class="form-group">
+                    <label>Invoice Date</label>
+                    <mat-form-field (click)="picker.open()">
+                        <mat-label>Enter a date range</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                            <input matStartDate placeholder="Start date" [(ngModel)]="criteria.startDate">
+                            <input matEndDate placeholder="End date" [(ngModel)]="criteria.endDate">
+                        </mat-date-range-input>
+                        <mat-hint>DD/MM/YYYY - DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4" *ngIf="searchType == 3">
+                <div class="form-group">
+                    <label>Status</label>
+                    <mat-form-field>
+                        <mat-label>Choose an option</mat-label>
+                        <mat-select [(ngModel)]="criteria.status">
+                            <mat-option *ngFor="let item of invoiceStatus"
+                                [value]="item.key">{{item.value}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="search()">Search</button>
+    </mat-card-actions>
+</mat-card>
