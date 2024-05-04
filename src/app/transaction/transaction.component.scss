@@ -8,3 +8,20 @@ label {
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+
+.approved {
+    background-color: #3f51b5;
+    padding: 0.25rem 1rem;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.rejected {
+    @extend .approved;
+    background-color: #f44336;
+}
+
+.done {
+    @extend .approved;
+    background-color: #198754;
+}

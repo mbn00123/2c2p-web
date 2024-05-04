@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { SearchInvoiceResultModel } from '../model/search-invoice-result-model';
 
 export const MY_FORMATS = {
   parse: {
@@ -29,9 +31,22 @@ export const MY_FORMATS = {
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatCardModule, MatRadioModule, MatSelectModule, MatDatepickerModule, ReactiveFormsModule, MatButtonModule],
-  providers: [{ provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-  { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatPaginatorModule
+  ],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
+  ],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.scss',
 })
@@ -41,25 +56,48 @@ export class TransactionComponent implements OnInit {
 
   public searchType: number = 1;
   public criteria: SearchInvoiceCriteriaModel = {
-    currency: null,
-    status: null,
-    startDate: null,
-    endDate: null
+    pageIndex: 1,
+    pageSize: 25,
+    currency: "THB",
+    status: "A",
+    startDate: new Date(),
+    endDate: new Date(),
   }
 
   public currencies: DropdownListModel<string, string>[] = [];
   public invoiceStatus: DropdownListModel<string, string>[] = [];
 
+  public pageSizeOptions = [10, 25, 50, 100];
+
+  public result: SearchInvoiceResultModel = {
+    page: 1,
+    totalPage: 0,
+    totalRecord: 0,
+    data: [{
+      invoiceNumber: 'XXXX',
+      invoiceAmount: 999999.99,
+      currencyCode: 'THB',
+      status: 'A',
+    },{
+      invoiceNumber: 'XXXX',
+      invoiceAmount: 999999.99,
+      currencyCode: 'THB',
+      status: 'R',
+    },{
+      invoiceNumber: 'XXXX',
+      invoiceAmount: 999999.99,
+      currencyCode: 'THB',
+      status: 'D',
+    }]
+  };
+
   ngOnInit() {
     this.currencies = this.masterService.GetCurrency();
     this.invoiceStatus = this.masterService.GetInvoiceStatus();
+  }
 
-    this.criteria = {
-      currency: "THB",
-      status: "A",
-      startDate: new Date(),
-      endDate: new Date(),
-    }
+  pageChanged(event: PageEvent) {
+
   }
 
   async search() {

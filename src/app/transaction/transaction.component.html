@@ -52,8 +52,42 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col">
+                <button mat-flat-button color="primary" (click)="search()">Search</button>
+            </div>
+        </div>
+
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-flat-button color="primary" (click)="search()">Search</button>
-    </mat-card-actions>
+</mat-card>
+
+<mat-card class="mt-4">
+    <mat-card-content>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of result.data">
+                        <td>{{item.invoiceNumber}}</td>
+                        <td>{{item.invoiceAmount | number}} {{item.currencyCode}}</td>
+                        <td>
+                            <span *ngIf="item.status == 'A'" class="approved">A</span>
+                            <span *ngIf="item.status == 'R'" class="rejected">R</span>
+                            <span *ngIf="item.status == 'D'" class="done">D</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <mat-paginator #paginator class="demo-paginator" (page)="pageChanged($event)" [length]="result.totalPage"
+            [pageIndex]="criteria.pageIndex" [pageSize]="criteria.pageSize" [showFirstLastButtons]="true"
+            [pageSizeOptions]="pageSizeOptions">
+        </mat-paginator>
+    </mat-card-content>
 </mat-card>
