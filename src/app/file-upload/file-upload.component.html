@@ -12,8 +12,7 @@
                     accept=".csv,.xml">
                 <p class="text-danger" *ngIf="fileNotSelected">Please select a file</p>
                 <p class="text-danger" *ngIf="fileTooLarge">File size exceeds 1 MB</p>
-                <p class="text-danger" *ngIf="invalidExtension">Invalid file extension. Only CSV and XML files are
-                    allowed.</p>
+                <p class="text-danger" *ngIf="invalidExtension">Unknown format</p>
             </div>
             <div class="col-12 pt-2">
                 <button mat-flat-button color="primary" (click)="onSubmit()">Upload</button>

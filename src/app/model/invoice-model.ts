@@ -1,6 +1,6 @@
 export interface InvoiceModel {
-    invoiceNumber: string;
-    invoiceAmount: number;
+    transactionId: string;
+    amount: number;
     currencyCode: string;
     status: string;
 }

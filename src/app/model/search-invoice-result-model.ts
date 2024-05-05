@@ -1,7 +1,7 @@
 import { InvoiceModel } from "./invoice-model";
 
 export interface SearchInvoiceResultModel {
-    page: number;
+    pageIndex: number;
     totalRecord: number;
     totalPage: number;
     data: InvoiceModel[];

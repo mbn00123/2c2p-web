@@ -74,8 +74,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of result.data">
-                        <td>{{item.invoiceNumber}}</td>
-                        <td>{{item.invoiceAmount | number}} {{item.currencyCode}}</td>
+                        <td>{{item.transactionId}}</td>
+                        <td>{{item.amount | number}} {{item.currencyCode}}</td>
                         <td>
                             <span *ngIf="item.status == 'A'" class="approved">A</span>
                             <span *ngIf="item.status == 'R'" class="rejected">R</span>
