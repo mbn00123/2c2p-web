@@ -21,4 +21,11 @@ export class InvoiceService {
   SearchByTransactionDate(criteria: SearchInvoiceCriteriaModel){
     return this.http.post(environment.ApiEndpoint + "/Invoice/SearchByTransactionDate", criteria);
   }
+
+  uploadFile(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post(environment.ApiEndpoint + "/Invoice/UploadFile", formData);
+  }
 }

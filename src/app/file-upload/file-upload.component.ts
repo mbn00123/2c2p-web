@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { InvoiceService } from '../services/invoice.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-file-upload',
@@ -15,7 +17,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatButtonModule,
+    HttpClientModule
   ],
+  providers: [InvoiceService],
   templateUrl: './file-upload.component.html',
   styleUrl: './file-upload.component.scss'
 })
@@ -26,9 +30,15 @@ export class FileUploadComponent {
   invalidExtension = false;
   fileNotSelected = false;
 
-  constructor() { }
+  uploadStatus: any = null;
+  errorMsg:string = "";
+
+  constructor(private invoiceService: InvoiceService) { }
 
   onFileSelect(event: any) {
+    this.uploadStatus = null;
+    this.errorMsg = "";
+
     const file = event.target.files[0];
     const allowedExtensions = ['csv', 'xml'];
 
@@ -76,6 +86,35 @@ export class FileUploadComponent {
 
     // Handle file submission
     console.log("File submitted:", this.selectedFile);
+
+    this.invoiceService.uploadFile(this.selectedFile).subscribe(response => {
+      this.uploadStatus = true;
+      console.log('File uploaded successfully:', response);
+    }, error => {
+      console.log(error);
+      this.uploadStatus = false;
+      this.errorMsg = error?.error;
+    });
+  }
+
+  downloadLogFile(): void {
+    const currentDate = new Date();
+    const filename = `file_${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}_${currentDate.getHours().toString().padStart(2, '0')}-${currentDate.getMinutes().toString().padStart(2, '0')}-${currentDate.getSeconds().toString().padStart(2, '0')}.log.txt`;
+
+    const blob = new Blob([this.errorMsg], { type: 'text/plain' });
+
+    const anchor = document.createElement('a');
+    anchor.download = filename;
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.target = '_blank';
+    anchor.style.display = 'none';
+    document.body.appendChild(anchor);
+
+    anchor.click();
+
+    // Cleanup
+    document.body.removeChild(anchor);
+    window.URL.revokeObjectURL(anchor.href);
   }
 
 }
