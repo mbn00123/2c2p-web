@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<Transactions>
+  <Transaction id="13363958">
+    <TransactionDate>2024-05-04 00:23:00</TransactionDate>
+    <PaymentDetails>
+      <Amount>419.19</Amount>
+      <CurrencyCode>GMD</CurrencyCode>
+    </PaymentDetails>
+    <Status>Rejected</Status>
+  </Transaction>
+  <Transaction id="24820569">
+    <TransactionDate>04-05-2024T03:25:12</TransactionDate>
+    <PaymentDetails>
+      <Amount>417.30</Amount>
+      <CurrencyCode>KPW</CurrencyCode>
+    </PaymentDetails>
+    <Status>Approved</Status>
+  </Transaction>
+  <Transaction id="19178798">
+    <TransactionDate>2024-05-04T00:12:46</TransactionDate>
+    <PaymentDetails>
+      <Amount></Amount>
+      <CurrencyCode>BHD</CurrencyCode>
+    </PaymentDetails>
+    <Status>Rejected</Status>
+  </Transaction>
+  <Transaction id="88880802">
+    <TransactionDate>2024-05-03T19:45:11</TransactionDate>
+    <PaymentDetails>
+      <Amount>169.83</Amount>
+      <CurrencyCode></CurrencyCode>
+    </PaymentDetails>
+    <Status>Rejected</Status>
+  </Transaction>
+  <Transaction id="05469451054694510546945105469451054694510546945105469451">
+    <TransactionDate>2024-05-04T09:15:22</TransactionDate>
+    <PaymentDetails>
+      <Amount>691.88</Amount>
+      <CurrencyCode>GBP</CurrencyCode>
+    </PaymentDetails>
+    <Status>Done</Status>
+  </Transaction>
+  <Transaction id="67840076">
+    <TransactionDate>2024-05-03T22:52:21</TransactionDate>
+    <PaymentDetails>
+      <Amount>988.87</Amount>
+      <CurrencyCode>PEN</CurrencyCode>
+    </PaymentDetails>
+    <Status>Finished</Status>
+  </Transaction>
+  <Transaction id="24721044">
+    <TransactionDate>2024-05-04T09:46:54</TransactionDate>
+    <PaymentDetails>
+      <Amount>908.60</Amount>
+      <CurrencyCode>BHD</CurrencyCode>
+    </PaymentDetails>
+    <Status>Done</Status>
+  </Transaction>
+  <Transaction id="21150069">
+    <TransactionDate>2024-05-04T10:27:19</TransactionDate>
+    <PaymentDetails>
+      <Amount>211.63</Amount>
+      <CurrencyCode>VES</CurrencyCode>
+    </PaymentDetails>
+    <Status>Approved</Status>
+  </Transaction>
+  <Transaction id="45055619">
+    <TransactionDate>2024-05-04T00:02:03</TransactionDate>
+    <PaymentDetails>
+      <Amount>589.31</Amount>
+      <CurrencyCode>ETB</CurrencyCode>
+    </PaymentDetails>
+    <Status>Done</Status>
+  </Transaction>
+  <Transaction id="15496445">
+    <TransactionDate>2024-05-04T03:58:01</TransactionDate>
+    <PaymentDetails>
+      <Amount>49.95</Amount>
+      <CurrencyCode>SGD</CurrencyCode>
+    </PaymentDetails>
+    <Status>Done</Status>
+  </Transaction>
+  <Transaction id="61579058">
+    <TransactionDate>2024-05-04T13:31:44</TransactionDate>
+    <PaymentDetails>
+      <Amount>903.41</Amount>
+      <CurrencyCode>MKD</CurrencyCode>
+    </PaymentDetails>
+    <Status>Approved</Status>
+  </Transaction>
+  <Transaction id="18833516">
+    <TransactionDate>2024-05-04T08:28:55</TransactionDate>
+    <PaymentDetails>
+      <Amount>927.51</Amount>
+      <CurrencyCode>HUF</CurrencyCode>
+    </PaymentDetails>
+    <Status>Rejected</Status>
+  </Transaction>
+  <Transaction id="76718666">
+    <TransactionDate>2024-05-04T08:27:17</TransactionDate>
+    <PaymentDetails>
+      <Amount>750.94</Amount>
+      <CurrencyCode>HTG</CurrencyCode>
+    </PaymentDetails>
+    <Status>Done</Status>
+  </Transaction>\>
+</Transactions>
